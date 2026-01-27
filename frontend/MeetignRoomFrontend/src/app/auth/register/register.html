@@ -1,0 +1,41 @@
+<div class="register-container">
+  <div class="glass-card">
+    <div class="card-header-custom">
+      <h2>Create Account</h2>
+      <p>Join the Meeting Room Booking System</p>
+    </div>
+
+    <form class="register-form">
+      <div class="input-group-custom">
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your name" [(ngModel)]="model.name" name="name">
+      </div>
+
+      <div class="input-group-custom">
+        <label>Email Address</label>
+        <input type="email" placeholder="name@example.com" [(ngModel)]="model.email" name="email">
+      </div>
+
+      <div class="input-group-custom">
+        <label>Password</label>
+        <input type="password" placeholder="Min. 8 characters" [(ngModel)]="model.password" name="password">
+      </div>
+
+      <div class="input-group-custom">
+        <label>User Role</label>
+        <select [(ngModel)]="model.role" name="role">
+          <option value="Admin">Admin</option>
+          <option value="Employee">Employee</option>
+        </select>
+      </div>
+
+      <button type="button" class="btn-submit" (click)="register()">
+        Register Now
+      </button>
+
+      <div class="footer-text">
+        Already have an account? <a routerLink="/login">Login</a>
+      </div>
+    </form>
+  </div>
+</div>

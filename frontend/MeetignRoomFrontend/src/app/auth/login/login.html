@@ -1,0 +1,30 @@
+<div class="login-container">
+  <div class="glass-card">
+    <div class="card-header-custom text-center">
+      <div class="icon-circle mb-3">
+        <i class="bi bi-shield-lock-fill"></i>
+      </div>
+      <h2 class="fw-bold title">Welcome Back</h2>
+    </div>
+
+    <form class="login-form">
+      <div class="input-group-custom">
+        <label>Email Address</label>
+        <input type="email" placeholder="name@example.com" [(ngModel)]="model.email" name="email">
+      </div>
+
+      <div class="input-group-custom">
+        <label>Password</label>
+        <input type="password" placeholder="Enter your password" [(ngModel)]="model.password" name="password">
+      </div>
+
+      <button type="button" class="btn-submit" (click)="login()">
+        Login
+      </button>
+
+      <div class="footer-text mt-4">
+        New user? <a routerLink="/register" class="fw-bold text-decoration-none">Create an account</a>
+      </div>
+    </form>
+  </div>
+</div>

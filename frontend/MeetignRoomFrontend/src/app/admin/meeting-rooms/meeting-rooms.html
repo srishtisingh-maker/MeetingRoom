@@ -1,0 +1,69 @@
+<div class="container mt-4">
+
+  <!-- Page Title -->
+  <h2 class="mb-4 text-center">Meeting Rooms</h2>
+
+  <!-- Loading -->
+  @if (loading) {
+    <div class="text-center mt-5">
+      <div class="spinner-border text-primary"></div>
+      <p class="mt-2">Loading meeting rooms...</p>
+    </div>
+  }
+
+  <!-- No Data -->
+  @if (!loading && rooms.length === 0) {
+    <div class="alert alert-info text-center">
+      No meeting rooms available
+    </div>
+  }
+
+  <!-- Rooms Grid -->
+  @if (!loading && rooms.length > 0) {
+    <div class="row g-4">
+      @for (room of rooms; track room.id) {
+        <div class="col-lg-4 col-md-6">
+          <div class="room-card">
+
+            <!-- Header -->
+            <div class="room-header">
+              <h5>{{ room.name }}</h5>
+              <span class="badge bg-success">
+                Capacity: {{ room.capacity }}
+              </span>
+            </div>
+
+            <!-- Body -->
+            <div class="room-body">
+              <p>
+                <strong>Building:</strong> {{ room.building }}
+              </p>
+              <p>
+                <strong>Floor:</strong> {{ room.floor }}
+              </p>
+
+              <!-- Accessories -->
+              <div class="accessories">
+                <span class="fw-semibold">Accessories:</span>
+
+                @if (room.accessories?.length > 0) {
+                  <div class="mt-2">
+                    @for (acc of room.accessories; track acc) {
+                      <span class="badge accessory-badge">
+                        {{ acc }}
+                      </span>
+                    }
+                  </div>
+                } @else {
+                  <span class="text-muted"> None</span>
+                }
+              </div>
+            </div>
+
+          </div>
+        </div>
+      }
+    </div>
+  }
+
+</div>
