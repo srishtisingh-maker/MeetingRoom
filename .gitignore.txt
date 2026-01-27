@@ -1,0 +1,12 @@
+# Visual Studio
+.vs/
+**/.vs/
+
+# .NET
+bin/
+obj/
+
+# Angular
+node_modules/
+dist/
+.angular/

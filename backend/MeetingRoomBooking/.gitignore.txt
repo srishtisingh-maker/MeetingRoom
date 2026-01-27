@@ -1,0 +1,45 @@
+############################
+# Build output
+############################
+bin/
+obj/
+Debug/
+Release/
+publish/
+artifacts/
+
+############################
+# Visual Studio
+############################
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+############################
+# Rider / JetBrains
+############################
+.idea/
+*.sln.iml
+
+############################
+# Logs
+############################
+logs/
+*.log
+
+############################
+# App settings & secrets
+############################
+appsettings.*.json
+!appsettings.json
+secrets.json
+
+############################
+# OS files
+############################
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini

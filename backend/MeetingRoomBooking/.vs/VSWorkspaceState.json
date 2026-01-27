@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Controllers",
+    "\\DTOS",
+    "\\DTOS\\Auth",
+    "\\Models",
+    "\\Repositories",
+    "\\Repositories\\Interfaces",
+    "\\Services",
+    "\\Services\\Interfaces"
+  ],
+  "SelectedNode": "\\MeetingRoomBooking.slnx",
+  "PreviewInSolutionExplorer": false
+}
