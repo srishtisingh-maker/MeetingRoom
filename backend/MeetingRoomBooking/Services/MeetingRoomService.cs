@@ -19,7 +19,6 @@ namespace MeetingRoomBooking.Services
         {
             var rooms = await _repository.GetAllAsync();
             return rooms
-                .Where(r => r.IsActive)
                 .Select(r => new MeetingRoomResponseDto
                 {
                     Id = r.Id,
@@ -34,6 +33,25 @@ namespace MeetingRoomBooking.Services
                 })
                 .ToList();
         }
+        [Authorize]
+        public async Task<List<MeetingRoomResponseDto>> GetActiveAsync()
+        {
+            var rooms = await _repository.GetActiveAsync();
+
+            return rooms.Select(r => new MeetingRoomResponseDto
+            {
+                Id = r.Id,
+                Name = r.Name,
+                Building = r.Building,
+                Floor = r.Floor,
+                Capacity = r.Capacity,
+                IsActive = r.IsActive,
+                Accessories = r.RoomAccessories
+                    .Select(ra => ra.Accessory.Name)
+                    .ToList()
+            }).ToList();
+        }
+
         [Authorize]
         public async Task<MeetingRoomResponseDto?> GetByIdAsync(int id)
         {
@@ -77,6 +95,18 @@ namespace MeetingRoomBooking.Services
             room.Building = dto.Building;
             room.Floor = dto.Floor;
             room.Capacity = dto.Capacity;
+            room.IsActive = dto.IsActive;
+            room.RoomAccessories.Clear();
+
+            // Add new accessories from dto
+            foreach (var accId in dto.AccessoryIds)
+            {
+                room.RoomAccessories.Add(new RoomAccessory
+                {
+                    AccessoryId = accId,
+                    RoomId = room.Id
+                });
+            }
             await _repository.UpdateAsync(room);
             await _repository.SaveAsync();
             return true;

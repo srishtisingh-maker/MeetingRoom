@@ -20,6 +20,15 @@ namespace MeetingRoomBooking.Repositories
                 .ThenInclude(ra => ra.Accessory)
                 .ToListAsync();
         }
+        public async Task<List<MeetingRoom>> GetActiveAsync()
+        {
+            return await _context.MeetingRooms
+                .Where(r => r.IsActive)
+                .Include(r => r.RoomAccessories)
+                .ThenInclude(ra => ra.Accessory)
+                .ToListAsync();
+        }
+
         public async Task<MeetingRoom?> GetByIdAsync(int id)
         {
             return await _context.MeetingRooms

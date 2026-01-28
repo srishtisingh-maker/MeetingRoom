@@ -21,6 +21,14 @@ namespace MeetingRoomBooking.Controllers
             => Ok(await _service.GetAllAsync());
 
         [Authorize]
+        [HttpGet("active")]
+        public async Task<IActionResult> GetActive()
+        {
+            return Ok(await _service.GetActiveAsync());
+        }
+
+
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -41,7 +49,7 @@ namespace MeetingRoomBooking.Controllers
         public async Task<IActionResult> Update(int id, UpdateMeetingRoomDto dto)
         {
             var result = await _service.UpdateAsync(id, dto);
-            return result ? Ok("Updated") : NotFound();
+            return result ?  Ok(new { message = "Meeting room updated successfully" }) : NotFound();
         }
 
         [Authorize(Roles = "Admin")]
@@ -49,7 +57,7 @@ namespace MeetingRoomBooking.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             var result = await _service.DeleteAsync(id);
-            return result ? Ok("Room deactivated") : NotFound();
+            return result ? Ok(new { message = "Room deactivated" }) : NotFound();
         }
     }
 }

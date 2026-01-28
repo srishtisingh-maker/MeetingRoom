@@ -58,7 +58,8 @@ namespace MeetingRoomBooking
                     {
                         policy.WithOrigins("http://localhost:4200")//frontend URL
                               .AllowAnyHeader()
-                              .AllowAnyMethod();
+                              .AllowAnyMethod()
+                              .AllowCredentials();
                     });
             });
 

@@ -5,6 +5,47 @@
     "version": "v1"
   },
   "paths": {
+    "/api/Accessory": {
+      "get": {
+        "tags": [
+          "Accessory"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Accessory"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAccessoryDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAccessoryDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAccessoryDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Accessory/{id}": {
       "get": {
         "tags": [
@@ -42,37 +83,6 @@
             }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/Accessory": {
-      "post": {
-        "tags": [
-          "Accessory"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateAccessoryDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateAccessoryDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateAccessoryDto"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "Success"
@@ -176,6 +186,18 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/MeetingRoom/active": {
+      "get": {
+        "tags": [
+          "MeetingRoom"
+        ],
         "responses": {
           "200": {
             "description": "Success"

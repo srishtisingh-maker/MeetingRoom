@@ -23,8 +23,6 @@ export class Login {
   login() {
     this.authService.login(this.model).subscribe({
       next: (res: any) => {
-        console.log('LOGIN RESPONSE:', res);
-        
         localStorage.setItem('token', res.token);
         localStorage.setItem('role', res.role); 
 

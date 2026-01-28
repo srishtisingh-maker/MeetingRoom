@@ -1,0 +1,12 @@
+.edit-card {
+  max-width: 520px;
+  margin: auto;
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+label {
+  font-weight: 500;
+}

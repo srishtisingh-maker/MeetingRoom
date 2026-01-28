@@ -325,3 +325,4 @@ C:\Users\shrishti.singh\Projects\MeetingRoomBookingSystem\backend\MeetingRoomBoo
 C:\Users\shrishti.singh\Projects\MeetingRoomBookingSystem\backend\MeetingRoomBooking\obj\Debug\net10.0\MeetingRoomBooking.genruntimeconfig.cache
 C:\Users\shrishti.singh\Projects\MeetingRoomBookingSystem\backend\MeetingRoomBooking\obj\Debug\net10.0\ref\MeetingRoomBooking.dll
 C:\Users\shrishti.singh\Projects\MeetingRoomBookingSystem\backend\MeetingRoomBooking\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\shrishti.singh\Projects\MeetingRoomBookingSystem\backend\MeetingRoomBooking\obj\Debug\net10.0\MeetingRoomBooking.sourcelink.json

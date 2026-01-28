@@ -17,6 +17,13 @@ namespace MeetingRoomBooking.Controllers
             _service = service;
         }
 
+        [HttpGet] 
+        public async Task<IActionResult> GetAll()
+        {
+            var accessories = await _service.GetAllAsync();
+            return Ok(accessories);
+        }
+
         [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
