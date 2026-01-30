@@ -5,7 +5,9 @@ using MeetingRoomBooking.Repositories.Interfaces;
 using MeetingRoomBooking.Services;
 using MeetingRoomBooking.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
@@ -66,15 +68,29 @@ namespace MeetingRoomBooking
             // Add services to the container.
             builder.Services.AddScoped<IMeetingRoomService, MeetingRoomService>();
             builder.Services.AddScoped<IMeetingRoomRepository, MeetingRoomRepository>();
+
             builder.Services.AddScoped<IAuthService, AuthService>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
+
             builder.Services.AddScoped<IAccessoryService, AccessoryService>();
             builder.Services.AddScoped<IAccessoryRepository, AccessoryRepository>();
 
+            builder.Services.AddScoped<IBookingRepository, BookingRepository>();
+            builder.Services.AddScoped<IBookingService,BookingService>();
+
+            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+            builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
 
             //Swagger
             builder.Services.AddEndpointsApiExplorer();
             // builder.Services.AddSwaggerGen();
+
+            builder.Services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.SuppressModelStateInvalidFilter = true;
+            });
 
             builder.Services.AddSwaggerGen(options =>
             {

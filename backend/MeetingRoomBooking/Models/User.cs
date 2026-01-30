@@ -24,7 +24,7 @@ namespace MeetingRoomBooking.Models
 
         public DateTime CreatedOn { get; set; } = DateTime.Now;
 
-    
+        public string? ProfileImageUrl { get; set; }
 
     }
 }

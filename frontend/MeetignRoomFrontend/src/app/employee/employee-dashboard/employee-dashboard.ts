@@ -12,9 +12,15 @@ import { HttpClient } from '@angular/common/http';
 export class EmployeeDashboard {
   loading = false;
   rooms: any[] = [];
-  
+  userName = 'User';
+
   constructor(private meetingRoomService: MeetingRoomService,private http: HttpClient, private router:Router,private cdr: ChangeDetectorRef) {}
-  
+
+  ngOnInit() {
+    // Read username saved during login
+    this.userName = localStorage.getItem('userName') || 'User';
+  }
+
   loadRooms() {
   this.loading = true;
 
@@ -33,6 +39,7 @@ export class EmployeeDashboard {
  logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('role');
+    localStorage.removeItem('userName');
     this.router.navigate(['/login']);
   }
 }

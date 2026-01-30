@@ -23,8 +23,13 @@ export class Login {
   login() {
     this.authService.login(this.model).subscribe({
       next: (res: any) => {
+        console.log('✅ Login response from backend:', res);
         localStorage.setItem('token', res.token);
         localStorage.setItem('role', res.role); 
+        localStorage.setItem('userName', res.userName);
+        // console.log(res.token);
+        // console.log(res.role);
+        
 
         if (res.role === 'Admin') {
           this.router.navigate(['/admin/dashboard']);

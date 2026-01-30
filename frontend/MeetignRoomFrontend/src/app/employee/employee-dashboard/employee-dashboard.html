@@ -2,7 +2,20 @@
   <div class="container-fluid">
     <a class="navbar-brand">Employee Dashboard</a>
 
-    <ul class="navbar-nav ms-auto">
+    <ul class="navbar-nav ms-auto align-items-center">
+
+      <!-- User Info -->
+      <li class="nav-item d-flex align-items-center me-3">
+        <img
+          src="../../profile.png"
+          class="profile-img"
+          alt="profile"
+        />
+        <span class="ms-2 text-white">
+          {{ userName }} <small class="text-muted">(Employee)</small>
+        </span>
+      </li>
+
       <li class="nav-item">
         <a class="nav-link" routerLink="meeting-rooms">
           View All Meeting Rooms
@@ -10,7 +23,21 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link text-danger" (click)="logout()" style="cursor: pointer;">
+        <a class="nav-link" routerLink="bookings">My Bookings</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="profile">
+          Update Profile
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="nav-link text-danger"
+          (click)="logout()"
+          style="cursor: pointer;"
+        >
           Logout
         </a>
       </li>
@@ -21,4 +48,3 @@
 <div class="container mt-4">
   <router-outlet></router-outlet>
 </div>
-

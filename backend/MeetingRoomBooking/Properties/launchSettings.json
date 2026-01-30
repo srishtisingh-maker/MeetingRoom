@@ -6,6 +6,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": true,
+      "launchBrowser": true,
       "applicationUrl": "http://localhost:5046"
     },
     "https": {
@@ -14,6 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": true,
+      "launchBrowser": true,
       "applicationUrl": "https://localhost:7217;http://localhost:5046"
     },
     "IIS Express": {

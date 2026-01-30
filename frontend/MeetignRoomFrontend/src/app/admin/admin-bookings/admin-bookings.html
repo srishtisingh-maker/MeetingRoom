@@ -1,0 +1,77 @@
+<div class="content-card">
+  <h3 class="mb-3">All Booking Requests</h3>
+
+  <table class="table table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>User</th>
+        <th>Room</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Participants</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let b of bookings">
+        <td>{{ b.userName }}</td>
+        <td>{{ b.roomName }}</td>
+        <td>{{ b.date }}</td>
+        <td>{{ b.startTime }} - {{ b.endTime }}</td>
+        <td>{{ b.participants }}</td>
+        <td>
+          <span class="badge"
+            [ngClass]="{
+              'bg-warning': b.status === 'Pending',
+              'bg-success': b.status === 'Approved',
+              'bg-danger': b.status === 'Rejected'
+            }">
+            {{ b.status }}
+          </span>
+        </td>
+        <td>
+          <button class="btn btn-sm btn-primary me-1" (click)="edit(b)">Edit</button>
+          <button class="btn btn-sm btn-success me-1" (click)="approve(b.id)" [disabled]="b.status !== 'Pending'">Approve</button>
+          <button class="btn btn-sm btn-danger" (click)="reject(b.id)" [disabled]="b.status !== 'Pending'">Reject</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal fade show d-block" *ngIf="selectedBooking">
+  <div class="modal-dialog">
+    <div class="modal-content p-3">
+      <h5>Edit Booking</h5>
+
+      <label>Date</label>
+      <input type="date" class="form-control mb-2" [(ngModel)]="selectedBooking.date">
+
+      <label>Start Time</label>
+      <input type="time" class="form-control mb-2" [(ngModel)]="selectedBooking.startTime">
+
+      <label>End Time</label>
+      <input type="time" class="form-control mb-2" [(ngModel)]="selectedBooking.endTime">
+
+      <label>Participants</label>
+      <input type="number" class="form-control mb-2" [(ngModel)]="selectedBooking.participants">
+
+      <label>Status</label>
+      <select class="form-control mb-3" [(ngModel)]="selectedBooking.status">
+        <option>Pending</option>
+        <option>Approved</option>
+        <option>Rejected</option>
+        <option>Cancelled</option>
+      </select>
+
+      <div class="text-end">
+        <button class="btn btn-secondary me-2" (click)="selectedBooking=null">Cancel</button>
+        <button class="btn btn-primary" (click)="update()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+

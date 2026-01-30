@@ -18,15 +18,15 @@ namespace MeetingRoomBooking
         public DateTime Date { get; set; }
 
         [Required]
-        public TimeSpan StartTime { get; set; }
+        public TimeOnly StartTime { get; set; }
 
         [Required]
-        public TimeSpan EndTime { get; set; }
+        public TimeOnly EndTime { get; set; }
 
         [Required]
         public int Participants { get; set; }
 
-        public string status { get; set; } = "Pending";
+        public string Status { get; set; } = "Pending";
 
         public DateTime RequestedOn { get; set; } = DateTime.Now;
 
