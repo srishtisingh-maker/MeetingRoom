@@ -55,3 +55,7 @@
   object-fit: cover;
   border: 2px solid #fff;
 }
+
+.text-muted{
+  color: #cccccc !important;
+}

@@ -577,6 +577,10 @@
               "schema": {
                 "type": "object",
                 "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
                   "Name": {
                     "maxLength": 100,
                     "type": "string"
@@ -592,6 +596,9 @@
                 }
               },
               "encoding": {
+                "Id": {
+                  "style": "form"
+                },
                 "Name": {
                   "style": "form"
                 },
@@ -623,6 +630,10 @@
               "schema": {
                 "type": "object",
                 "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
                   "Name": {
                     "maxLength": 100,
                     "type": "string"
@@ -638,6 +649,9 @@
                 }
               },
               "encoding": {
+                "Id": {
+                  "style": "form"
+                },
                 "Name": {
                   "style": "form"
                 },

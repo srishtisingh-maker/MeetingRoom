@@ -7,12 +7,12 @@
       <!-- User Info -->
       <li class="nav-item d-flex align-items-center me-3">
         <img
-          src="../../profile.png"
+          [src]=ProfilePic
           class="profile-img"
           alt="profile"
         />
         <span class="ms-2 text-white">
-          {{ userName }} <small class="text-muted">(Employee)</small>
+          {{ name }} <small class="text-muted">({{ Role }})</small>
         </span>
       </li>
 

@@ -24,9 +24,9 @@ export class Login {
     this.authService.login(this.model).subscribe({
       next: (res: any) => {
         console.log('✅ Login response from backend:', res);
-        localStorage.setItem('token', res.token);
-        localStorage.setItem('role', res.role); 
-        localStorage.setItem('userName', res.userName);
+        localStorage.setItem('user' , JSON.stringify(res));
+        
+        // console.log(res.userName);
         // console.log(res.token);
         // console.log(res.role);
         

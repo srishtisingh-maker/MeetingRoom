@@ -30,6 +30,7 @@ namespace MeetingRoomBooking.Controllers
 
 
         // GET: /api/booking/my
+        [Authorize(Roles = "Employee")]
         [HttpGet("my")]
         public async Task<IActionResult> GetMyBookings()
         => Ok(await _service.GetByUserAsync(GetUserId()));

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -17,15 +17,19 @@ export class Register {
     password:'',
     role:'Employee'
   };
-  constructor(private authService: AuthService,private router: Router){}
+  constructor(private authService: AuthService,private router: Router,private cdr:ChangeDetectorRef){}
 
   register(){
     this.authService.register(this.model).subscribe({
       next: () => {
         alert('Registration successful');
+        console.log("h111");
+        
         this.router.navigate(['/login']);
       },
       error: err => {
+        console.log("qwwewerw");
+        
          err?.error?.message || 'Registration failed. Please try again.';
       alert(err.error.message);
       }

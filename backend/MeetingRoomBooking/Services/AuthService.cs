@@ -83,8 +83,12 @@ namespace MeetingRoomBooking.Services
             var token = GenerateJwt(user);
             return new AuthResponseDto
             {
+                Id = user.Id,
+                Name =  user.Name,
+                Email = user.Email,
+                ProfileImageUrl = user.ProfileImageUrl,
+                Role = user.Role,
                 Token = token,
-                Role = user.Role
             };
         }
         private string GenerateJwt(User user)
@@ -93,7 +97,8 @@ namespace MeetingRoomBooking.Services
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Role, user.Role),
-                new Claim(ClaimTypes.Email, user.Email)
+                new Claim(ClaimTypes.Email, user.Email),
+               
             };
             var key = new SymmetricSecurityKey(
                 Encoding.UTF8.GetBytes(_config["Jwt:Key"]));

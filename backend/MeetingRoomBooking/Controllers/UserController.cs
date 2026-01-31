@@ -44,14 +44,17 @@ namespace MeetingRoomBooking.Controllers
         [HttpPut("update-profile")]
         public async Task<IActionResult> UpdateProfile([FromForm] UpdateUserProfileDto dto)
         {
-            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            Console.WriteLine(ClaimTypes.NameIdentifier);
+            //var userIdClaim = User.FindFirst(int.Parse(dto.Id));
+            //var userIdClaim = User.FindFirst(c => c.Value == dto.Id);
 
-            if (userIdClaim == null)
-                throw new AppException("Invalid token", StatusCodes.Status401Unauthorized);
 
-            int userId = int.Parse(userIdClaim.Value);
+            //if (userIdClaim == null)
+            //    throw new AppException("Invalid token", StatusCodes.Status401Unauthorized);
 
-            var user = await _service.UpdateProfileAsync(userId, dto);
+            //int userId = int.Parse(userIdClaim.Value);
+
+            var user = await _service.UpdateProfileAsync(dto.Id, dto);
 
             return Ok(new
             {

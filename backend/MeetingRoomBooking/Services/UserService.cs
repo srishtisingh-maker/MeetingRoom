@@ -49,7 +49,7 @@ namespace MeetingRoomBooking.Services
             if (!string.IsNullOrWhiteSpace(dto.Name))
                 user.Name = dto.Name;
 
-            if (!string.IsNullOrWhiteSpace(dto.Email))
+            if (!string.IsNullOrWhiteSpace(dto.Email) && user.Email != dto.Email)
             {
                 if (await _userRepository.EmailExistsAsync(dto.Email))
                     throw new AppException("Email already exists", StatusCodes.Status400BadRequest);

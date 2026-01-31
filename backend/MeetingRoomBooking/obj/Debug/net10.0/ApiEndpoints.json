@@ -371,6 +371,11 @@
     "Order": 0,
     "Parameters": [
       {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
         "Name": "Name",
         "Type": "System.String",
         "IsRequired": false
@@ -396,6 +401,11 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
       {
         "Name": "Name",
         "Type": "System.String",
