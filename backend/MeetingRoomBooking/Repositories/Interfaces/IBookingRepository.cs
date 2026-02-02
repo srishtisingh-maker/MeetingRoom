@@ -10,5 +10,14 @@ namespace MeetingRoomBooking.Repositories.Interfaces
         Task CreateAsync(Booking booking);
         Task UpdateAsync(Booking booking);
         Task DeleteAsync(Booking booking);
+
+        Task<bool> IsRoomAvailableAsync(
+        int roomId,
+        DateTime date,
+        TimeOnly startTime,
+        TimeOnly endTime,
+        int? excludeBookingId = null
+        );
+
     }
 }

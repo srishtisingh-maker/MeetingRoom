@@ -127,21 +127,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -163,8 +148,6 @@ export class EmployeeProfile {
   previewUrl: string | null = null;
   loading = false;
 
-  Id!: number;
-  Role!: string;
   ProfilePic!: string;
 
   constructor(
@@ -177,16 +160,17 @@ export class EmployeeProfile {
   ngOnInit() {
     const userData = localStorage.getItem('user');
 
+    let name = '';
+    let email = '';
+
     if (userData) {
       const user = JSON.parse(userData);
-
-      this.Id = user.id;
-      this.Role = user.role;
+      name = user.name || '';
+      email = user.email || '';
       this.ProfilePic = user.profileImageUrl;
-
-      this.buildForm(user.name, user.email);
-      this.cdr.detectChanges();
     }
+
+    this.buildForm(name, email);
   }
 
   private buildForm(name: string, email: string) {
@@ -202,13 +186,13 @@ export class EmployeeProfile {
 
     const file = input.files[0];
 
-    // Type validation
+    // type validation
     if (!['image/png', 'image/jpeg'].includes(file.type)) {
       alert('Only JPG or PNG images are allowed');
       return;
     }
 
-    // Size validation (5MB)
+    // size validation (5MB)
     if (file.size > 5 * 1024 * 1024) {
       alert('Image size must be less than 5MB');
       return;
@@ -218,8 +202,11 @@ export class EmployeeProfile {
     img.src = URL.createObjectURL(file);
 
     img.onload = () => {
-      if (img.width < 300 || img.width > 3000 || img.height < 300 || img.height > 3000) {
-        alert('Image must be between 300 × 300 and 3000 × 3000 pixels');
+      if (
+        img.width < 300 || img.width > 3000 ||
+        img.height < 300 || img.height > 3000
+      ) {
+        alert('Image must be between 300×300 and 3000×3000');
         return;
       }
 
@@ -231,68 +218,115 @@ export class EmployeeProfile {
     };
   }
 
+  // updateProfile() {
+  //   if (this.profileForm.invalid) {
+  //     this.profileForm.markAllAsTouched();
+  //     return;
+  //   }
+
+  //   const formData = new FormData();
+  //   const { name, email } = this.profileForm.value;
+
+  //   if (name?.trim()) formData.append('name', name);
+  //   if (email?.trim()) formData.append('email', email);
+  //   if (this.selectedFile) formData.append('profileImage', this.selectedFile);
+
+  //   this.loading = true;
+
+  //   this.userService.updateProfile(formData).subscribe({
+  //     next: (res: any) => {
+  //       alert('Profile updated successfully');
+
+  //       const userData = localStorage.getItem('user');
+  //       if (userData) {
+  //         const user = JSON.parse(userData);
+
+  //         user.name = name;
+  //         user.email = email;
+
+  //         if (res.profileImageUrl) {
+  //           this.ProfilePic = `${res.profileImageUrl}?v=${Date.now()}`;
+  //           user.profileImageUrl = this.ProfilePic;
+  //         }
+
+  //         localStorage.setItem('user', JSON.stringify(user));
+
+  //         //  notify navbar/dashboard
+  //         window.dispatchEvent(new Event('userUpdated'));
+  //       }
+
+  //       this.previewUrl = null;
+  //       this.selectedFile = null;
+  //       this.loading = false;
+  //       this.cdr.detectChanges();
+  //     },
+  //     error: err => {
+  //       alert(err.error?.message || 'Profile update failed');
+  //       this.loading = false;
+  //     }
+  //   });
+  // }
+
   updateProfile() {
-    if (this.profileForm.invalid) {
-      this.profileForm.markAllAsTouched();
-      return;
-    }
-
-    const formData = new FormData();
-
-    const { name, email } = this.profileForm.value;
-
-    if (name?.trim()) formData.append('name', name);
-    if (email?.trim()) formData.append('email', email);
-    if (this.selectedFile) formData.append('profileImage', this.selectedFile);
-
-    // Optional: backend ignores this, but fine to keep
-    formData.append('Id', this.Id.toString());
-
-    this.loading = true;
-
-    this.userService.updateProfile(formData).subscribe({
-      // next: res => {
-      //   alert('Profile updated successfully');
-      //   this.loading = false;
-      //   this.router.navigate(['/employee/dashboard']);
-
-        
-      // this.cdr.detectChanges();
-      // },
-      next: res => {
-  alert('Profile updated successfully');
+  if (this.profileForm.invalid) {
+    this.profileForm.markAllAsTouched();
+    return;
+  }
 
   const userData = localStorage.getItem('user');
-  if (userData) {
-    const user = JSON.parse(userData);
-
-    user.name = this.profileForm.value.name;
-    user.email = this.profileForm.value.email;
-
-    if (res.profileImageUrl) {
-      // 🚨 THIS LINE FIXES EVERYTHING
-      this.ProfilePic = `${res.profileImageUrl}?v=${Date.now()}`;
-      user.profileImageUrl = this.ProfilePic;
-    }
-
-    localStorage.setItem('user', JSON.stringify(user));
+  if (!userData) {
+    alert('User not found. Please login again.');
+    return;
   }
 
-  // clear preview so it doesn't override new image
-  this.previewUrl = null;
-  this.selectedFile = null;
+  const user = JSON.parse(userData);
 
-  this.loading = false;
-  this.cdr.detectChanges();
-},
-      error: err => {
-        alert(err.error?.message || 'Profile update failed');
-        this.loading = false;
+  const formData = new FormData();
+  const { name, email } = this.profileForm.value;
+
+  formData.append('id', user.id.toString());
+
+  if (name?.trim()) formData.append('name', name);
+  if (email?.trim()) formData.append('email', email);
+  if (this.selectedFile) {
+    formData.append('profileImage', this.selectedFile);
+  }
+
+  this.loading = true;
+
+  this.userService.updateProfile(formData).subscribe({
+    next: (res: any) => {
+      alert('Profile updated successfully');
+
+      user.name = name;
+      user.email = email;
+
+      if (res.user?.profileImageUrl) {
+        this.ProfilePic = `${res.user.profileImageUrl}?v=${Date.now()}`;
+        user.profileImageUrl = this.ProfilePic;
       }
-    });
+
+      localStorage.setItem('user', JSON.stringify(user));
+      window.dispatchEvent(new Event('userUpdated'));
+
+      this.previewUrl = null;
+      this.selectedFile = null;
+      this.loading = false;
+      this.cdr.detectChanges();
+    },
+    error: err => {
+      alert(err.error?.message || 'Profile update failed');
+      this.loading = false;
+    }
+  });
+}
+
+
+  get name() {
+    return this.profileForm.get('name');
   }
 
-  // getters for template
-  get name() { return this.profileForm.get('name'); }
-  get email() { return this.profileForm.get('email'); }
+  get email() {
+    return this.profileForm.get('email');
+  }
 }

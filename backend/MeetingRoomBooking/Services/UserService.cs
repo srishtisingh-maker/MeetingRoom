@@ -43,6 +43,8 @@ namespace MeetingRoomBooking.Services
 
         public async Task<UserResponseDto> UpdateProfileAsync(int userId, UpdateUserProfileDto dto)
         {
+            Console.WriteLine("iD: ",userId);
+            Console.WriteLine("DTO ", dto);
             var user = await _userRepository.GetByIdAsync(userId)
                 ?? throw new AppException("User not found", StatusCodes.Status404NotFound);
 

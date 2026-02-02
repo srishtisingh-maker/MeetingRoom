@@ -53,5 +53,25 @@ namespace MeetingRoomBooking.Repositories
             _context.Bookings.Remove(booking);
             await _context.SaveChangesAsync();
         }
+        public async Task<bool> IsRoomAvailableAsync(
+        int roomId,
+        DateTime date,
+        TimeOnly startTime,
+        TimeOnly endTime,
+        int? excludeBookingId = null)
+        {
+            return !await _context.Bookings
+                .Where(b =>
+                    b.RoomId == roomId &&
+                    b.Date == date.Date &&
+                    b.Status == "Approved" &&
+                    (excludeBookingId == null || b.Id != excludeBookingId)
+                )
+                .AnyAsync(b =>
+                    b.StartTime < endTime &&
+                    startTime < b.EndTime
+                );
+        }
+
     }
 }

@@ -68,46 +68,49 @@ export class EmployeeBookings implements OnInit {
   }
 
   save() {
+    const start = new Date(`1970-01-01T${this.formModel.startTime}`);
+    const end = new Date(`1970-01-01T${this.formModel.endTime}`);
+
+    if (end <= start) {
+      alert('End time must be after start time');
+      return;
+    }
+
+    const diffMinutes = (end.getTime() - start.getTime()) / (1000 * 60);
+    if (diffMinutes < 30) {
+      alert('Booking must be at least 30 minutes');
+      return;
+    }
+
     if (this.isEdit && this.editId) {
-      this.bookingService
-        .updateByEmployee(this.editId, {
-          date: this.formModel.date,
-          startTime: this.formModel.startTime,
-          endTime: this.formModel.endTime,
-          participants: this.formModel.participants,
-        })
-        .subscribe(() => {
+      this.bookingService.updateByEmployee(this.editId, {
+        date: this.formModel.date,
+        startTime: this.formModel.startTime,
+        endTime: this.formModel.endTime,
+        participants: this.formModel.participants,
+      }).subscribe({
+        next: () => {
           alert('Booking updated');
-          console.log(this.formModel.startTime);
-      
           this.reset();
-        });
+        },
+        error: err => {
+          alert(err?.error?.message || 'Update failed');
+        }
+      });
     } else {
-      const start = new Date(`1970-01-01T${this.formModel.startTime}`);
-      const end = new Date(`1970-01-01T${this.formModel.endTime}`);
-
-      if (end <= start) {
-        alert('End time must be after start time');
-        return;
-      }
-
-      const diffMinutes = (end.getTime() - start.getTime()) / (1000 * 60);
-      if (diffMinutes < 30) {
-        alert('Booking must be at least 30 minutes');
-        return;
-      }
       this.bookingService.createBooking(this.formModel).subscribe({
-        next: (res: any) => {
-          alert('Booking created successfully!');
-          this.loadBookings(); // refresh list
+        next: () => {
+          alert('Booking created successfully');
+          this.reset();
         },
-        error: (err) => {
-          // err.error.message comes from your AppException
-          alert(err?.error?.message || 'Something went wrong');
-        },
+        error: err => {
+          // 🔥 Backend availability error handled here
+          alert(err?.error?.message || 'Booking failed');
+        }
       });
     }
   }
+
 
   cancelBooking(id: number) {
     if (!confirm('Cancel this booking?')) return;

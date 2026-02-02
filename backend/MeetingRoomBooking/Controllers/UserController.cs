@@ -44,7 +44,9 @@ namespace MeetingRoomBooking.Controllers
         [HttpPut("update-profile")]
         public async Task<IActionResult> UpdateProfile([FromForm] UpdateUserProfileDto dto)
         {
-            Console.WriteLine(ClaimTypes.NameIdentifier);
+            Console.WriteLine(dto.Id);
+            Console.WriteLine(dto.Name);
+            Console.WriteLine(dto.Email);
             //var userIdClaim = User.FindFirst(int.Parse(dto.Id));
             //var userIdClaim = User.FindFirst(c => c.Value == dto.Id);
 

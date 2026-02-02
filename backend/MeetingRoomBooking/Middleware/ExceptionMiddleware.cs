@@ -35,7 +35,7 @@
                 context.Response.StatusCode = statusCode;
 
                 var response = new
-                {
+                {   
                     message = exception.Message,
                     statusCode = statusCode
                 };

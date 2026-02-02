@@ -23,12 +23,12 @@ export class Register {
     this.authService.register(this.model).subscribe({
       next: () => {
         alert('Registration successful');
-        console.log("h111");
+        console.log("registration successful");
         
         this.router.navigate(['/login']);
       },
       error: err => {
-        console.log("qwwewerw");
+        console.log("registration failed due to some error ", err);
         
          err?.error?.message || 'Registration failed. Please try again.';
       alert(err.error.message);

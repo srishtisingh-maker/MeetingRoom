@@ -21,25 +21,22 @@ export class Login {
   ) {}
 
   login() {
-    this.authService.login(this.model).subscribe({
-      next: (res: any) => {
-        console.log('✅ Login response from backend:', res);
-        localStorage.setItem('user' , JSON.stringify(res));
-        
-        // console.log(res.userName);
-        // console.log(res.token);
-        // console.log(res.role);
-        
+    this. authService.login(this.model).subscribe({
+    next: (res: any) => {
+  console.log('✅ Login response:', res);
 
-        if (res.role === 'Admin') {
-          this.router.navigate(['/admin/dashboard']);
-        } else {
-          this.router.navigate(['/employee/dashboard']);
-        }
-      },
-      error: err => {
-        alert(err?.error?.message || 'Login failed');
-      }
+  // store full user
+  localStorage.setItem('user', JSON.stringify(res));
+
+  // store token separately (CRITICAL)
+  localStorage.setItem('token', res.token);
+
+  if (res.role === 'Admin') {
+    this.router.navigate(['/admin/dashboard']);
+  } else {
+    this.router.navigate(['/employee/dashboard']);
+  }
+}
     });
   }
 }

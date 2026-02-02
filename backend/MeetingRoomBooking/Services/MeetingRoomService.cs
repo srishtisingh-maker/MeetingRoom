@@ -37,7 +37,7 @@ namespace MeetingRoomBooking.Services
         public async Task<List<MeetingRoomResponseDto>> GetActiveAsync()
         {
             var rooms = await _repository.GetActiveAsync();
-
+            Console.WriteLine(rooms.Count);
             return rooms.Select(r => new MeetingRoomResponseDto
             {
                 Id = r.Id,

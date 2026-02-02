@@ -33,14 +33,22 @@ namespace MeetingRoomBooking.Services
             var b = await _repository.GetByIdAsync(id);
             return b == null ? null : MapToDto(b);
         }
-
+        //Changed
         public async Task CreateAsync(int userId, CreateBookingDto dto)
         {
             var room = await _roomRepository.GetByIdAsync(dto.RoomId);
-            Console.WriteLine($"RoomId received: {dto.RoomId}");
-
             if (room == null || !room.IsActive)
                 throw new AppException("Invalid room");
+
+            var isAvailable = await _repository.IsRoomAvailableAsync(
+                dto.RoomId,
+                dto.Date,
+                dto.StartTime,
+                dto.EndTime
+            );
+
+            if (!isAvailable)
+                throw new AppException("Room is not available for selected time");
 
             var booking = new Booking
             {
@@ -52,8 +60,10 @@ namespace MeetingRoomBooking.Services
                 Participants = dto.Participants,
                 RequestedOn = DateTime.UtcNow
             };
+
             await _repository.CreateAsync(booking);
         }
+        
         public async Task<bool> UpdateByAdminAsync(int id, int adminId, UpdateBookingByAdminDto dto)
         {
             var booking = await _repository.GetByIdAsync(id);
@@ -88,7 +98,7 @@ namespace MeetingRoomBooking.Services
             await _repository.UpdateAsync(booking);
             return true;
         }
-
+      
         public async Task<bool> CancelAsync(int id, int userId)
         {
             var booking = await _repository.GetByIdAsync(id);
@@ -99,19 +109,32 @@ namespace MeetingRoomBooking.Services
             await _repository.UpdateAsync(booking);
             return true;
         }
-
+        //changed
         public async Task<bool> ApproveAsync(int id, int adminId)
         {
             var booking = await _repository.GetByIdAsync(id);
             if (booking == null || booking.Status != "Pending")
                 return false;
 
+            var isAvailable = await _repository.IsRoomAvailableAsync(
+                booking.RoomId,
+                booking.Date,
+                booking.StartTime,
+                booking.EndTime,
+                booking.Id
+            );
+
+            if (!isAvailable)
+                throw new AppException("Room already booked for this time");
+
             booking.Status = "Approved";
             booking.ActionBy = adminId;
             booking.ActionOn = DateTime.UtcNow;
+
             await _repository.UpdateAsync(booking);
             return true;
         }
+
 
         public async Task<bool> RejectAsync(int id, int adminId)
         {

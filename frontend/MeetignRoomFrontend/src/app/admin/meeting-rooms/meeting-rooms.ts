@@ -22,7 +22,14 @@ isAdmin = false;
 
  ngOnInit() {
 
-  this.isAdmin = localStorage.getItem('role') === 'Admin';
+  const userData = localStorage.getItem('user');
+  this.isAdmin = false;
+
+  if (userData) {
+    const user = JSON.parse(userData);
+    this.isAdmin = user.role === 'Admin';
+  }
+
   console.log(this.isAdmin);
   
     this.loadRooms();

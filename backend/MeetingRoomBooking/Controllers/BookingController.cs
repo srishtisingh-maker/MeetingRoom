@@ -1,4 +1,5 @@
 ﻿using MeetingRoomBooking.DTOS.Booking;
+using MeetingRoomBooking.Middleware;
 using MeetingRoomBooking.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -16,10 +17,17 @@ namespace MeetingRoomBooking.Controllers
         {
             _service = service;
         }
-
         private int GetUserId()
         {
-            return int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (string.IsNullOrWhiteSpace(userIdClaim))
+                throw new AppException(
+                    "Unauthorized: User ID claim missing",
+                    StatusCodes.Status401Unauthorized
+                );
+
+            return int.Parse(userIdClaim);
         }
 
         // GET: /api/Booking
@@ -84,7 +92,7 @@ namespace MeetingRoomBooking.Controllers
         public async Task<IActionResult> Approve(int id)
         {
             var result = await _service.ApproveAsync(id, GetUserId());
-            return result ? Ok("Booking approved") : BadRequest("Cannot approve");
+            return result ? Ok(new { message = "Booking approved" } ) : BadRequest("Cannot approve");
         }
 
         // Admin Reject

@@ -1,5 +1,5 @@
 import { CommonModule, NgClass, NgFor, NgIf } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
 import { BookingService } from '../../services/booking-service';
 
@@ -11,9 +11,14 @@ import { BookingService } from '../../services/booking-service';
 })
 export class AdminBookings implements OnInit {
   bookings: any[] = [];
+
+  pendingBookings: any[] = [];
+  approvedBookings: any[] = [];
+  cancelledBookings: any[] = [];
+
   selectedBooking: any = null;
 
-  constructor(private bookingService: BookingService) {}
+  constructor(private bookingService: BookingService,private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.loadBookings();
@@ -22,7 +27,21 @@ export class AdminBookings implements OnInit {
   loadBookings() {
     this.bookingService.getAllBookings().subscribe(res => {
       this.bookings = res;
+      this.splitBookings();
+      this.cdr.detectChanges();
     });
+  }
+
+  splitBookings() {
+    this.pendingBookings = this.bookings
+      .filter(b => b.status === 'Pending')
+      .sort((a, b) => b.id - a.id); // newest first
+
+    this.approvedBookings = this.bookings
+      .filter(b => b.status === 'Approved');
+
+    this.cancelledBookings = this.bookings
+      .filter(b => b.status === 'Rejected' || b.status === 'Cancelled');
   }
 
   edit(booking: any) {
@@ -39,7 +58,12 @@ export class AdminBookings implements OnInit {
   }
 
   approve(id: number) {
-    this.bookingService.approve(id).subscribe(() => this.loadBookings());
+    this.bookingService.approve(id).subscribe({
+      next: () => this.loadBookings(),
+      error: err => {
+        alert(err?.error?.message || 'Approval failed');
+      }
+    });
   }
 
   reject(id: number) {
