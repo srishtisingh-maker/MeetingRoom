@@ -1,4 +1,5 @@
 ﻿using MeetingRoomBooking.Data;
+using MeetingRoomBooking.DTOS.User;
 using MeetingRoomBooking.Models;
 using MeetingRoomBooking.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -13,7 +14,21 @@ namespace MeetingRoomBooking.Repositories
         {
             _context = context;
         }
-
+        public async Task<List<GetAllUsersResponseDto>> GetAllUsersAsync()
+        {
+            return await _context.Users
+                
+                .Select(u => new GetAllUsersResponseDto
+                {
+                    Id = u.Id,
+                    Name = u.Name,
+                    Email = u.Email,
+                    Role = u.Role,
+                    IsActive = u.IsActive,
+                    CreatedOn = u.CreatedOn
+                })
+                .ToListAsync();
+        }
         public async Task<User?> GetByEmailAsync(string email)
         {
             return await _context.Users

@@ -29,7 +29,7 @@ namespace MeetingRoomBooking.Controllers
         public async Task<IActionResult> GetById(int id)
         {
             var accessory = await _service.GetByIdAsync(id);
-            return accessory == null ? NotFound("Accessory not found") : Ok(accessory);
+            return accessory == null ? NotFound(new { message = "Accessory not found" }) : Ok(accessory);
         }
 
         [Authorize(Roles = "Admin")]
@@ -37,7 +37,7 @@ namespace MeetingRoomBooking.Controllers
         public async Task<IActionResult> Create([FromBody] CreateAccessoryDto dto)
         {
             await _service.CreateAsync(dto);
-            return Ok("Accessory created");
+            return Ok(new { message = "Accessory created" });
         }
 
         [Authorize(Roles = "Admin")]
@@ -45,7 +45,7 @@ namespace MeetingRoomBooking.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             var result = await _service.DeleteAsync(id);
-            return result ? Ok("Accessory deleted") : NotFound("Accessory not found");
+            return result ? Ok(new { message = "Accessory deleted" }) : NotFound(new { message = "Accessory not found" });
         }
     }
 }

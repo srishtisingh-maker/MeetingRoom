@@ -20,7 +20,7 @@ namespace MeetingRoomBooking.Controllers
         public async Task<IActionResult> Register(RegisterDto dto)
         {
             await _authService.RegisterAsync(dto);
-            return Ok("User registered");
+            return Ok(new { message = "User registered" });
         }
 
         [HttpPost("login")]

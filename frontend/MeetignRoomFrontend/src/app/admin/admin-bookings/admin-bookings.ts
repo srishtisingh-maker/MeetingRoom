@@ -5,7 +5,7 @@ import { BookingService } from '../../services/booking-service';
 
 @Component({
   selector: 'app-admin-bookings',
-  imports: [NgFor,FormsModule,NgClass,NgIf,CommonModule],
+  imports: [FormsModule,CommonModule],
   templateUrl: './admin-bookings.html',
   styleUrl: './admin-bookings.css',
 })

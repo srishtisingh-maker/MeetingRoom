@@ -3,24 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\shrishti.singh\\Projects\\MeetingRoomBookingSystem\\backend\\MeetingRoomBooking\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{2941C956-B86C-538E-66C5-3E3B13DD98EF}|MeetingRoomBooking.csproj|c:\\users\\shrishti.singh\\projects\\meetingroombookingsystem\\backend\\meetingroombooking\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2941C956-B86C-538E-66C5-3E3B13DD98EF}|MeetingRoomBooking.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2941C956-B86C-538E-66C5-3E3B13DD98EF}|MeetingRoomBooking.csproj|c:\\users\\shrishti.singh\\projects\\meetingroombookingsystem\\backend\\meetingroombooking\\controllers\\meetingroomcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2941C956-B86C-538E-66C5-3E3B13DD98EF}|MeetingRoomBooking.csproj|solutionrelative:controllers\\meetingroomcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2941C956-B86C-538E-66C5-3E3B13DD98EF}|MeetingRoomBooking.csproj|c:\\users\\shrishti.singh\\projects\\meetingroombookingsystem\\backend\\meetingroombooking\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2941C956-B86C-538E-66C5-3E3B13DD98EF}|MeetingRoomBooking.csproj|solutionrelative:controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2941C956-B86C-538E-66C5-3E3B13DD98EF}|MeetingRoomBooking.csproj|c:\\users\\shrishti.singh\\projects\\meetingroombookingsystem\\backend\\meetingroombooking\\services\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2941C956-B86C-538E-66C5-3E3B13DD98EF}|MeetingRoomBooking.csproj|solutionrelative:services\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2941C956-B86C-538E-66C5-3E3B13DD98EF}|MeetingRoomBooking.csproj|c:\\users\\shrishti.singh\\projects\\meetingroombookingsystem\\backend\\meetingroombooking\\dtos\\booking\\updatebookingdto .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2941C956-B86C-538E-66C5-3E3B13DD98EF}|MeetingRoomBooking.csproj|solutionrelative:dtos\\booking\\updatebookingdto .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2941C956-B86C-538E-66C5-3E3B13DD98EF}|MeetingRoomBooking.csproj|c:\\users\\shrishti.singh\\projects\\meetingroombookingsystem\\backend\\meetingroombooking\\middleware\\exceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2941C956-B86C-538E-66C5-3E3B13DD98EF}|MeetingRoomBooking.csproj|solutionrelative:middleware\\exceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2941C956-B86C-538E-66C5-3E3B13DD98EF}|MeetingRoomBooking.csproj|c:\\users\\shrishti.singh\\projects\\meetingroombookingsystem\\backend\\meetingroombooking\\dtos\\user\\updateuserprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2941C956-B86C-538E-66C5-3E3B13DD98EF}|MeetingRoomBooking.csproj|solutionrelative:dtos\\user\\updateuserprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2941C956-B86C-538E-66C5-3E3B13DD98EF}|MeetingRoomBooking.csproj|c:\\users\\shrishti.singh\\projects\\meetingroombookingsystem\\backend\\meetingroombooking\\repositories\\bookingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2941C956-B86C-538E-66C5-3E3B13DD98EF}|MeetingRoomBooking.csproj|solutionrelative:repositories\\bookingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2941C956-B86C-538E-66C5-3E3B13DD98EF}|MeetingRoomBooking.csproj|c:\\users\\shrishti.singh\\projects\\meetingroombookingsystem\\backend\\meetingroombooking\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2941C956-B86C-538E-66C5-3E3B13DD98EF}|MeetingRoomBooking.csproj|solutionrelative:booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2941C956-B86C-538E-66C5-3E3B13DD98EF}|MeetingRoomBooking.csproj|c:\\users\\shrishti.singh\\projects\\meetingroombookingsystem\\backend\\meetingroombooking\\services\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2941C956-B86C-538E-66C5-3E3B13DD98EF}|MeetingRoomBooking.csproj|solutionrelative:services\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2941C956-B86C-538E-66C5-3E3B13DD98EF}|MeetingRoomBooking.csproj|c:\\users\\shrishti.singh\\projects\\meetingroombookingsystem\\backend\\meetingroombooking\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2941C956-B86C-538E-66C5-3E3B13DD98EF}|MeetingRoomBooking.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2941C956-B86C-538E-66C5-3E3B13DD98EF}|MeetingRoomBooking.csproj|c:\\users\\shrishti.singh\\projects\\meetingroombookingsystem\\backend\\meetingroombooking\\controllers\\accessorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2941C956-B86C-538E-66C5-3E3B13DD98EF}|MeetingRoomBooking.csproj|solutionrelative:controllers\\accessorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,67 +46,123 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ExceptionMiddleware.cs",
-              "DocumentMoniker": "C:\\Users\\shrishti.singh\\Projects\\MeetingRoomBookingSystem\\backend\\MeetingRoomBooking\\Middleware\\ExceptionMiddleware.cs",
-              "RelativeDocumentMoniker": "Middleware\\ExceptionMiddleware.cs",
-              "ToolTip": "C:\\Users\\shrishti.singh\\Projects\\MeetingRoomBookingSystem\\backend\\MeetingRoomBooking\\Middleware\\ExceptionMiddleware.cs",
-              "RelativeToolTip": "Middleware\\ExceptionMiddleware.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAA5wBEAAAAQAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "UpdateBookingDto .cs",
+              "DocumentMoniker": "C:\\Users\\shrishti.singh\\Projects\\MeetingRoomBookingSystem\\backend\\MeetingRoomBooking\\DTOS\\Booking\\UpdateBookingDto .cs",
+              "RelativeDocumentMoniker": "DTOS\\Booking\\UpdateBookingDto .cs",
+              "ToolTip": "C:\\Users\\shrishti.singh\\Projects\\MeetingRoomBookingSystem\\backend\\MeetingRoomBooking\\DTOS\\Booking\\UpdateBookingDto .cs",
+              "RelativeToolTip": "DTOS\\Booking\\UpdateBookingDto .cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-02T10:35:12.085Z"
+              "WhenOpened": "2026-02-06T06:59:01.242Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
+              "Title": "UpdateUserProfileDto.cs",
+              "DocumentMoniker": "C:\\Users\\shrishti.singh\\Projects\\MeetingRoomBookingSystem\\backend\\MeetingRoomBooking\\DTOS\\User\\UpdateUserProfileDto.cs",
+              "RelativeDocumentMoniker": "DTOS\\User\\UpdateUserProfileDto.cs",
+              "ToolTip": "C:\\Users\\shrishti.singh\\Projects\\MeetingRoomBookingSystem\\backend\\MeetingRoomBooking\\DTOS\\User\\UpdateUserProfileDto.cs",
+              "RelativeToolTip": "DTOS\\User\\UpdateUserProfileDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-06T07:10:11.732Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "BookingRepository.cs",
               "DocumentMoniker": "C:\\Users\\shrishti.singh\\Projects\\MeetingRoomBookingSystem\\backend\\MeetingRoomBooking\\Repositories\\BookingRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\BookingRepository.cs",
               "ToolTip": "C:\\Users\\shrishti.singh\\Projects\\MeetingRoomBookingSystem\\backend\\MeetingRoomBooking\\Repositories\\BookingRepository.cs",
               "RelativeToolTip": "Repositories\\BookingRepository.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAuwD0AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAIwDMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-02T06:56:03.078Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "BookingService.cs",
-              "DocumentMoniker": "C:\\Users\\shrishti.singh\\Projects\\MeetingRoomBookingSystem\\backend\\MeetingRoomBooking\\Services\\BookingService.cs",
-              "RelativeDocumentMoniker": "Services\\BookingService.cs",
-              "ToolTip": "C:\\Users\\shrishti.singh\\Projects\\MeetingRoomBookingSystem\\backend\\MeetingRoomBooking\\Services\\BookingService.cs",
-              "RelativeToolTip": "Services\\BookingService.cs",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAawIYAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-02T07:49:19.971Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Booking.cs",
-              "DocumentMoniker": "C:\\Users\\shrishti.singh\\Projects\\MeetingRoomBookingSystem\\backend\\MeetingRoomBooking\\Booking.cs",
-              "RelativeDocumentMoniker": "Booking.cs",
-              "ToolTip": "C:\\Users\\shrishti.singh\\Projects\\MeetingRoomBookingSystem\\backend\\MeetingRoomBooking\\Booking.cs",
-              "RelativeToolTip": "Booking.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAowBkAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-02T06:45:56.857Z"
+              "WhenOpened": "2026-02-06T07:08:11.59Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\shrishti.singh\\Projects\\MeetingRoomBookingSystem\\backend\\MeetingRoomBooking\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\shrishti.singh\\Projects\\MeetingRoomBookingSystem\\backend\\MeetingRoomBooking\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Controllers\\UserController.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAIwF8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-06T06:51:42.867Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MeetingRoomController.cs",
+              "DocumentMoniker": "C:\\Users\\shrishti.singh\\Projects\\MeetingRoomBookingSystem\\backend\\MeetingRoomBooking\\Controllers\\MeetingRoomController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MeetingRoomController.cs",
+              "ToolTip": "C:\\Users\\shrishti.singh\\Projects\\MeetingRoomBookingSystem\\backend\\MeetingRoomBooking\\Controllers\\MeetingRoomController.cs",
+              "RelativeToolTip": "Controllers\\MeetingRoomController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADsAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-06T06:51:26.149Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\shrishti.singh\\Projects\\MeetingRoomBookingSystem\\backend\\MeetingRoomBooking\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\shrishti.singh\\Projects\\MeetingRoomBookingSystem\\backend\\MeetingRoomBooking\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwB4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-06T06:51:10.09Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AccessoryController.cs",
+              "DocumentMoniker": "C:\\Users\\shrishti.singh\\Projects\\MeetingRoomBookingSystem\\backend\\MeetingRoomBooking\\Controllers\\AccessoryController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccessoryController.cs",
+              "ToolTip": "C:\\Users\\shrishti.singh\\Projects\\MeetingRoomBookingSystem\\backend\\MeetingRoomBooking\\Controllers\\AccessoryController.cs",
+              "RelativeToolTip": "Controllers\\AccessoryController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-06T06:50:26.464Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "BookingController.cs",
               "DocumentMoniker": "C:\\Users\\shrishti.singh\\Projects\\MeetingRoomBookingSystem\\backend\\MeetingRoomBooking\\Controllers\\BookingController.cs",
               "RelativeDocumentMoniker": "Controllers\\BookingController.cs",
               "ToolTip": "C:\\Users\\shrishti.singh\\Projects\\MeetingRoomBookingSystem\\backend\\MeetingRoomBooking\\Controllers\\BookingController.cs",
               "RelativeToolTip": "Controllers\\BookingController.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAuwGIAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAEEAAAAAAAAAAAA8wFEAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-02T04:40:28.752Z",
+              "WhenOpened": "2026-02-06T06:37:57.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BookingService.cs",
+              "DocumentMoniker": "C:\\Users\\shrishti.singh\\Projects\\MeetingRoomBookingSystem\\backend\\MeetingRoomBooking\\Services\\BookingService.cs",
+              "RelativeDocumentMoniker": "Services\\BookingService.cs",
+              "ToolTip": "C:\\Users\\shrishti.singh\\Projects\\MeetingRoomBookingSystem\\backend\\MeetingRoomBooking\\Services\\BookingService.cs",
+              "RelativeToolTip": "Services\\BookingService.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAmwF4AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-06T06:35:53.558Z",
               "EditorCaption": ""
             }
           ]

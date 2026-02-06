@@ -1,0 +1,56 @@
+<div class="content-card">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3 class="text-info mb-0">All Users</h3>
+
+    <div class="form-check form-switch">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="adminToggle"
+        [(ngModel)]="includeAdmins"
+        (change)="applyFilter()"
+      />
+      <label class="form-check-label" for="adminToggle">
+        Include Admins
+      </label>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="text-center">
+    Loading users...
+  </div>
+
+  <table *ngIf="!loading" class="table table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Status</th>
+        <th>Created On</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let u of filteredUsers">
+        <td>{{ u.name }}</td>
+        <td>{{ u.email }}</td>
+        <td>
+          <span
+            class="badge"
+            [ngClass]="u.role === 'Admin' ? 'bg-primary' : 'bg-secondary'">
+            {{ u.role }}
+          </span>
+        </td>
+        <td>
+          <span
+            class="badge"
+            [ngClass]="u.isActive ? 'bg-success' : 'bg-danger'">
+            {{ u.isActive ? 'Active' : 'Inactive' }}
+          </span>
+        </td>
+        <td>{{ u.createdOn | date:'mediumDate' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

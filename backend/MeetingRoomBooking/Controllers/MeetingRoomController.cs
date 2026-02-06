@@ -41,7 +41,7 @@ namespace MeetingRoomBooking.Controllers
         public async Task<IActionResult> Create([FromBody] CreateMeetingRoomDto dto)
         {
             await _service.CreateAsync(dto);
-            return Ok("Meetig room created");
+            return Ok(new { message = "Meetig room created" });
         }
 
         [Authorize(Roles = "Admin")]

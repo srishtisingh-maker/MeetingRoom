@@ -22,4 +22,8 @@ export class UserService {
   getProfile(): Observable<any> {
     return this.http.get(`${this.baseUrl}/me`);
   }
+  
+  getAllUsers(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/users`);
+  }
 }

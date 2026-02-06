@@ -19,6 +19,11 @@ namespace MeetingRoomBooking.Services
             _userRepository = userRepository;
             _cloudinaryService = cloudinaryService;
         }
+        public async Task<List<GetAllUsersResponseDto>> GetAllUsersAsync()
+        {
+          
+            return await _userRepository.GetAllUsersAsync();
+        }
 
         public async Task<User> CreateAsync(User user)
         {
@@ -43,7 +48,7 @@ namespace MeetingRoomBooking.Services
 
         public async Task<UserResponseDto> UpdateProfileAsync(int userId, UpdateUserProfileDto dto)
         {
-            Console.WriteLine("iD: ",userId);
+            Console.WriteLine("ID: ",userId);
             Console.WriteLine("DTO ", dto);
             var user = await _userRepository.GetByIdAsync(userId)
                 ?? throw new AppException("User not found", StatusCodes.Status404NotFound);

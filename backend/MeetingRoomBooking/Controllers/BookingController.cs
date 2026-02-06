@@ -66,7 +66,7 @@ namespace MeetingRoomBooking.Controllers
         public async Task<IActionResult> UpdateByAdmin(int id, UpdateBookingByAdminDto dto)
         {
             var result = await _service.UpdateByAdminAsync(id, GetUserId(), dto);
-            return result ? Ok("Booking updated by admin") : BadRequest("Cannot update booking");
+            return result ? Ok(new { message = "Booking updated by admin" }) : BadRequest(new { message = "Cannot update booking" });
         }
 
         // PUT: /api/booking/5
@@ -74,7 +74,7 @@ namespace MeetingRoomBooking.Controllers
         public async Task<IActionResult> UpdateByEmployee(int id, UpdateBookingByEmployeeDto dto)
         {
             var result = await _service.UpdateByEmployeeAsync(id, GetUserId(), dto);
-            return result ? Ok("Booking updated") : BadRequest("Cannot update");
+            return result ? Ok(new { message = "Booking updated successfully" }) : BadRequest(new { message = "Cannot update" });
         }
 
 
@@ -83,7 +83,7 @@ namespace MeetingRoomBooking.Controllers
         public async Task<IActionResult> Cancel(int id)
         {
             var result = await _service.CancelAsync(id, GetUserId());
-            return result ? Ok("Booking cancelled") : BadRequest("Cannot cancel");
+            return result ? Ok(new { message = "Booking cancelled" }) : BadRequest(new { message ="Cannot cancel"});
         }
 
         // Admin Approve
@@ -92,7 +92,7 @@ namespace MeetingRoomBooking.Controllers
         public async Task<IActionResult> Approve(int id)
         {
             var result = await _service.ApproveAsync(id, GetUserId());
-            return result ? Ok(new { message = "Booking approved" } ) : BadRequest("Cannot approve");
+            return result ? Ok(new { message = "Booking approved" } ) : BadRequest(new { message = "Cannot approve" });
         }
 
         // Admin Reject
@@ -101,7 +101,7 @@ namespace MeetingRoomBooking.Controllers
         public async Task<IActionResult> Reject(int id)
         {
             var result = await _service.RejectAsync(id, GetUserId());
-            return result ? Ok("Booking rejected") : BadRequest("Cannot reject");
+            return result ? Ok(new { message = "Booking rejected" }) : BadRequest(new { message = "Cannot reject" });
         }
     }
 }

@@ -6,6 +6,7 @@ using MeetingRoomBooking.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
 namespace MeetingRoomBooking.Controllers
@@ -31,17 +32,24 @@ namespace MeetingRoomBooking.Controllers
             return Ok(user);
         }
 
-        // POST: api/user
-        [HttpPost]
+        //// POST: api/user
+        //[HttpPost]
+        //[Authorize(Roles = "Admin")]
+        //public async Task<IActionResult> CreateUser([FromBody] User user)
+        //{
+        //    var createdUser = await _service.CreateAsync(user);
+        //    return Ok(createdUser);
+        //}
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> CreateUser([FromBody] User user)
+        [HttpGet("users")]
+        public async Task<IActionResult> GetAllUsers()
         {
-            var createdUser = await _service.CreateAsync(user);
-            return Ok(createdUser);
+            var users = await _service.GetAllUsersAsync();
+            return Ok(users);
         }
 
         [HttpPut("profile")]
-        [HttpPut("update-profile")]
+        //[HttpPut("update-profile")]
         public async Task<IActionResult> UpdateProfile([FromForm] UpdateUserProfileDto dto)
         {
             Console.WriteLine(dto.Id);

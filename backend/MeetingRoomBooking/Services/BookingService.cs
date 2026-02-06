@@ -72,8 +72,8 @@ namespace MeetingRoomBooking.Services
 
             booking.RoomId = dto.RoomId;
             booking.Date = dto.Date;
-            //booking.StartTime = dto.StartTime;
-            //booking.EndTime = dto.EndTime;
+            booking.StartTime = dto.StartTime;
+            booking.EndTime = dto.EndTime;
             booking.Participants = dto.Participants;
             booking.Status = dto.Status;
 
@@ -91,8 +91,8 @@ namespace MeetingRoomBooking.Services
                 return false;
 
             booking.Date = dto.Date;
-            //booking.StartTime = dto.StartTime;
-            //booking.EndTime = dto.EndTime;
+            booking.StartTime = dto.StartTime;
+            booking.EndTime = dto.EndTime;
             booking.Participants = dto.Participants;
 
             await _repository.UpdateAsync(booking);

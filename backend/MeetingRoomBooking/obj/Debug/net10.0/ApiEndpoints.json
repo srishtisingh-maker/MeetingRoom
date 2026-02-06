@@ -322,22 +322,6 @@
   },
   {
     "ContainingType": "MeetingRoomBooking.Controllers.UserController",
-    "Method": "CreateUser",
-    "RelativePath": "api/User",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "user",
-        "Type": "MeetingRoomBooking.Models.User",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MeetingRoomBooking.Controllers.UserController",
     "Method": "GetByEmail",
     "RelativePath": "api/User/by-email",
     "HttpMethod": "GET",
@@ -395,33 +379,12 @@
   },
   {
     "ContainingType": "MeetingRoomBooking.Controllers.UserController",
-    "Method": "UpdateProfile",
-    "RelativePath": "api/User/update-profile",
-    "HttpMethod": "PUT",
+    "Method": "GetAllUsers",
+    "RelativePath": "api/User/users",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "Id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "Name",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Email",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "ProfileImage",
-        "Type": "Microsoft.AspNetCore.Http.IFormFile",
-        "IsRequired": false
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": []
   }
 ]

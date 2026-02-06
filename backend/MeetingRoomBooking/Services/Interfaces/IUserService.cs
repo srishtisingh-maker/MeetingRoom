@@ -7,6 +7,7 @@ namespace MeetingRoomBooking.Services.Interfaces
     {
         Task<UserResponseDto> UpdateProfileAsync(int userId, UpdateUserProfileDto dto);
 
+        Task<List<GetAllUsersResponseDto>> GetAllUsersAsync();
 
         Task<User> CreateAsync(User user);
         Task<bool> EmailExistsAsync(string email);

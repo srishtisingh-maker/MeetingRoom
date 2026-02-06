@@ -1,9 +1,11 @@
-﻿using MeetingRoomBooking.Models;
+﻿using MeetingRoomBooking.DTOS.User;
+using MeetingRoomBooking.Models;
 
 namespace MeetingRoomBooking.Repositories.Interfaces
 {
     public interface IUserRepository
     {
+        Task<List<GetAllUsersResponseDto>> GetAllUsersAsync();
         Task<User?> GetByIdAsync(int id);
         Task UpdateAsync(User user);
         Task<User?> GetByEmailAsync(string email);
